@@ -27,7 +27,7 @@ export const login = async (req, res) => {
     if (!validPass)
       return res.status(400).json({ msg: 'Password is incorrect' });
 
-    const token = generateJWT(user.id);
+    const token = await generateJWT(user.id);
     res.status(200).json({ msg: 'Logged in!', user, token });
   } catch (err) {
     console.log('Error:', err);
