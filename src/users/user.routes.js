@@ -1,26 +1,50 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
-import { validateFields } from '../middlewares/validate-fields';
-import { emailExists, userExistsById } from '../helpers/db-validators';
-import { userPost, userGet } from './user.controller.js';
+import { validateFields } from '../middlewares/validate-fields.js';
+import { validateJWT } from '../middlewares/validate-jwt.js';
+import { hasRole } from '../middlewares/validate-roles.js';
+import { existingEmail, existingUserById } from '../helpers/db-validators.js';
+import {
+  adminUsersPut,
+  clientUsersPut,
+  deleteUser,
+} from './user.controller.js';
 
 const router = Router();
 
-router.post(
-  '/',
+router.put(
+  '/:id',
   [
-    check('name', 'The name is required').not().isEmpty(),
-    check('email', 'The email is required').isEmail(),
-    check('email').custom(emailExists),
-    check(
-      'password',
-      'The password must be greater than 6 characters'
-    ).isLength({
-      min: 6,
-    }),
+    validateJWT,
+    hasRole('ADMIN_ROLE'),
+    check('id', 'Invalid id').isMongoId(),
+    check('id').custom(existingUserById),
     validateFields,
   ],
-  userPost
+  adminUsersPut
 );
 
-router.get('/', userGet);
+router.put(
+  '/put/:id',
+  [
+    validateJWT,
+    check('id', 'Invalid id').isMongoId(),
+    check('id').custom(existingUserById),
+    validateFields,
+  ],
+  clientUsersPut
+);
+
+router.delete(
+  '/:id',
+  [
+    validateJWT,
+    hasRole('ADMIN_ROLE', 'CLIENT_ROLE'),
+    check('id', 'Invalid id').isMongoId(),
+    check('id').custom(existingUserById),
+    validateFields,
+  ],
+  deleteUser
+);
+
+export default router;

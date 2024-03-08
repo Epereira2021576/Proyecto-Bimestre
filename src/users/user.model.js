@@ -15,8 +15,8 @@ const UserSchema = mongoose.Schema({
   },
   role: {
     type: String,
-    required: true,
-    enum: ['ADMIN_ROLE', 'USER_ROLE'],
+    default: 'CLIENT_ROLE',
+    enum: ['ADMIN_ROLE', 'CLIENT_ROLE'],
   },
   status: {
     type: Boolean,
@@ -30,4 +30,4 @@ UserSchema.methods.toJSON = function () {
   return user;
 };
 
-export default model('User', UserSchema);
+export default mongoose.model('User', UserSchema);
