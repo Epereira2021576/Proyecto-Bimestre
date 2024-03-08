@@ -1,12 +1,17 @@
-const express = require('express');
-const cors = require('cors');
-const { dbConnection } = require('../db/config');
+'use strict';
+
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import { dbConnection } from './mongo.js';
+import UserRoutes from '../users/user.routes.js';
 
 class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
-    this.usersPath = '/api/users';
+    this.usersPath = '/finalAPI/v1/users';
     // Connect to database
     this.connectDB();
     // Middlewares
@@ -20,18 +25,15 @@ class Server {
   }
 
   middlewares() {
-    // CORS for content requests from any origin
+    this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cors());
-
-    // Parse and read body, server running and debugging
     this.app.use(express.json());
-
-    // Public directory for content to be displayed
-    this.app.use(express.static('public'));
+    this.app.use(helmet());
+    this.app.use(morgan('dev'));
   }
 
   routes() {
-    /*this.app.use(this.usersPath, require('../routes/user.routes'));*/
+    this.app.use(this.usersPath, UserRoutes);
   }
 
   // Method to start the server effective
@@ -42,4 +44,4 @@ class Server {
   }
 }
 
-module.exports = Server;
+export default Server;

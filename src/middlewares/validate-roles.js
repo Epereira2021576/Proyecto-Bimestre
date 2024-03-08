@@ -1,4 +1,4 @@
-const { request, response } = require('express');
+import { request, response } from 'express';
 
 const hasRole = (...roles) => {
   return (req = request, res = response, next) => {
@@ -18,6 +18,6 @@ const hasRole = (...roles) => {
   };
 };
 
-module.exports = {
+export default {
   hasRole,
 };
