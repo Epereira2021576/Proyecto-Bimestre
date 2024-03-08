@@ -1,0 +1,94 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "TienditaProductos",
+    "dateExported": "2024-03-08T23:45:08.364Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "909f003d-bff5-4622-9b53-c3ccb1980b18",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "productosPost",
+            "url": "http://localhost:3000/finalAPI/v1/productos/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-08T22:37:22.348Z",
+            "modified": "2024-03-08T23:28:29.199Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"ostia\",\n  \"price\": \"14\",\n  \"category\": \"nombre\",\n  \"stock\": \"15\",\n  \"userID\": \"65eb479bbf0e913c142efd65\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ebf1c229-fb43-4a26-8e85-467006f96c99",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "productosGetCategorias",
+            "url": "http://localhost:3000/finalAPI/v1/productos/nombre",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-08T22:47:26.843Z",
+            "modified": "2024-03-08T23:05:59.842Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f7f533b8-adfc-4042-9a0c-47f356fb80bd",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "productosGet",
+            "url": "http://localhost:3000/finalAPI/v1/productos/",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-08T22:54:32.679Z",
+            "modified": "2024-03-08T22:54:39.542Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "31ae999c-4d47-448f-a290-5373871ce29a",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "productosPut",
+            "url": "http://localhost:3000/finalAPI/v1/productos/65eb913c535e541c3f253410",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-08T23:08:44.102Z",
+            "modified": "2024-03-08T23:17:11.573Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"eskere\",\n  \"price\": \"15\",\n  \"category\": \"nombre\",\n  \"stock\": \"5\",\n  \"userID\": \"65eb479bbf0e913c142efd65\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e1c96ad8-b70d-48a9-8427-009739813afa",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "productoDelete",
+            "url": "http://localhost:3000/finalAPI/v1/productos/65eba1f446bbf85e77dfa0fe",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-03-08T23:19:01.616Z",
+            "modified": "2024-03-08T23:40:47.435Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userID\": \"65eb479bbf0e913c142efd65\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

@@ -9,16 +9,18 @@ const ProductoSchema = mongoose.Schema({
     type: String,
     require: [true, 'El precio del producto es obligatorio'],
   },
-  category: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: [true, 'Categoria obligatoria'],
-    ref: 'Category',
-  },
+  category: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      required: [true, 'Categoria obligatoria'],
+      ref: 'Category',
+    },
+  ],
   stock: {
     type: String,
     require: [true, 'El stock del producto es obligatorio'],
   },
-  state: {
+  status: {
     type: Boolean,
     default: true,
   },

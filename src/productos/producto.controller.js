@@ -45,7 +45,7 @@ export const getProductos = async (_req, res = response) => {
 
 export const productoPut = async (req, res) => {
   const { id } = req.params;
-  const { _id, category, ...rest } = req.body;
+  const { _id, ...rest } = req.body;
   await Producto.findByIdAndUpdate(id, rest);
 
   const producto = await Producto.findOne({ _id: id });
@@ -57,7 +57,7 @@ export const productoPut = async (req, res) => {
 
 export const productoDelete = async (req, res) => {
   const { id } = req.params;
-  await Producto.findByIdAndUpdate(id, { state: false });
+  await Producto.findByIdAndUpdate(id, { status: false });
 
   const producto = await Producto.findOne({ _id: id });
 
