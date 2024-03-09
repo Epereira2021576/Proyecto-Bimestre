@@ -7,7 +7,7 @@ import {
   productoPut,
   productoDelete,
   buscarProductoPorCategoria,
-} from './producto.controller.js';
+} from './products.controller.js';
 
 import { validationOfRole } from '../middlewares/role-validator.js';
 const router = Router();
@@ -17,10 +17,10 @@ router.get('/', getProductos);
 router.post(
   '/',
   [
-    check('name', 'Se requiere un nombre').not().isEmpty(),
-    check('price', 'Se requiere un precio').not().isEmpty(),
-    check('category', 'Se requiere una categoria').not().isEmpty(),
-    check('stock', 'Se requiere un stock').not().isEmpty(),
+    check('name', 'Name required').not().isEmpty(),
+    check('price', 'Price required').not().isEmpty(),
+    check('category', 'Category Required').not().isEmpty(),
+    check('stock', 'Stock required').not().isEmpty(),
     validateFields,
     validationOfRole,
   ],
@@ -47,6 +47,6 @@ router.delete(
   productoDelete
 );
 
-router.get('/:category', buscarProductoPorCategoria);
+router.get('/:idCategoria', buscarProductoPorCategoria);
 
 export default router;

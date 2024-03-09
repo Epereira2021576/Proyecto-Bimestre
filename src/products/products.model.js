@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Categoria from '../category/category.model.js';
+import Category from '../category/category.model.js';
 const ProductoSchema = mongoose.Schema({
   name: {
     type: String,

@@ -1,21 +1,21 @@
-import Producto from './producto.model.js';
+import Product from './products.model.js';
 import Category from '../category/category.model.js';
 import { request, response } from 'express';
 
 export const productoPost = async (req, res) => {
   const { name, price, category, stock } = req.body;
   const categoryName = await Category.findOne({ name: category });
-  const producto = new Producto({
+  const productNew = new Product({
     name,
     price,
     category: categoryName,
     stock,
   });
 
-  await producto.save();
+  await productNew.save();
   res.status(200).json({
-    msg: 'El producto fue agregado correctamente',
-    producto,
+    msg: 'Succesfully added product',
+    productNew,
   });
 };
 
@@ -23,11 +23,11 @@ export const productoPost = async (req, res) => {
 export const getProductos = async (_req, res = response) => {
   try {
     const { limit, from } = _req.query;
-    const query = { state: true };
+    const query = { status: true };
 
-    const [total, producto] = await Promise.all([
-      Producto.countDocuments(query),
-      Producto.find(query)
+    const [total, products] = await Promise.all([
+      Product.countDocuments(query),
+      Product.find(query)
         .populate('category')
         .skip(Number(from))
         .limit(Number(limit)),
@@ -35,7 +35,7 @@ export const getProductos = async (_req, res = response) => {
 
     res.status(200).json({
       total,
-      producto,
+      products,
     });
   } catch (e) {
     console.log(e);
@@ -46,24 +46,26 @@ export const getProductos = async (_req, res = response) => {
 export const productoPut = async (req, res) => {
   const { id } = req.params;
   const { _id, ...rest } = req.body;
-  await Producto.findByIdAndUpdate(id, rest);
+  const categoryName = await Category.findOne({ name: rest.category });
+  rest.category = categoryName;
+  await Product.findByIdAndUpdate(id, rest);
 
-  const producto = await Producto.findOne({ _id: id });
+  const product = await Product.findOne({ _id: id });
   return res.status(200).json({
-    msg: 'El producto fue actualizado correctamente',
-    producto,
+    msg: 'Product Updated Succesfully',
+    product,
   });
 };
 
 export const productoDelete = async (req, res) => {
   const { id } = req.params;
-  await Producto.findByIdAndUpdate(id, { status: false });
+  await Product.findByIdAndUpdate(id, { status: false });
 
-  const producto = await Producto.findOne({ _id: id });
+  const product = await Producto.findOne({ _id: id });
 
   res.status(200).json({
-    msg: 'El producto fue eliminado correctamente',
-    producto,
+    msg: 'Product deleted succesfully',
+    product,
   });
 };
 
@@ -104,11 +106,11 @@ export const ordenarProducto = async (req, res = response) => {
 };
 
 export const buscarProductoPorCategoria = async (req, res = response) => {
-  const { categoria } = req.params;
-  const producto = await Producto.find({ category: categoria });
+  const { idCategoria } = req.params;
+  const producto = await Product.find({ category: idCategoria });
   if (!producto)
     return res
       .status(400)
-      .json({ msg: 'No se encontraron productos de esa categoria' });
+      .json({ msg: `Did't found any products on this category.` });
   res.status(200).json({ producto });
 };

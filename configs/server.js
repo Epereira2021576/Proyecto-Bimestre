@@ -8,7 +8,7 @@ import { dbConnection } from './mongo.js';
 import UserRoutes from '../src/users/user.routes.js';
 import AuthRoutes from '../src/auth/auth.routes.js';
 import CategoryRoutes from '../src/category/category.routes.js';
-import ProductoRoutes from '../src/productos/producto.routes.js';
+import ProductsRoutes from '../src/products/products.routes.js';
 
 class Server {
   constructor() {
@@ -17,7 +17,7 @@ class Server {
     this.usersPath = '/finalAPI/v1/users';
     this.authPath = '/finalAPI/v1/auth';
     this.categoryPath = '/finalAPI/v1/category';
-    this.productPath = '/finalAPI/v1/productos';
+    this.productPath = '/finalAPI/v1/products';
     // Connect to database
     this.connectDB();
     // Middlewares
@@ -42,7 +42,7 @@ class Server {
     this.app.use(this.usersPath, UserRoutes);
     this.app.use(this.authPath, AuthRoutes);
     this.app.use(this.categoryPath, CategoryRoutes);
-    this.app.use(this.productPath, ProductoRoutes);
+    this.app.use(this.productPath, ProductsRoutes);
   }
 
   // Method to start the server effective
