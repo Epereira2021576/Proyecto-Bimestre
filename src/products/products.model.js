@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import Category from '../category/category.model.js';
-const ProductoSchema = mongoose.Schema({
+const ProductSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Nombre obligatorio'],
@@ -26,10 +26,10 @@ const ProductoSchema = mongoose.Schema({
   },
 });
 
-ProductoSchema.methods.toJSON = function () {
-  const { __v, _id, ...producto } = this.toObject();
-  producto.pid = _id;
-  return producto;
+ProductSchema.methods.toJSON = function () {
+  const { __v, _id, ...product } = this.toObject();
+  product.pid = _id;
+  return product;
 };
 
-export default mongoose.model('Producto', ProductoSchema);
+export default mongoose.model('Product', ProductSchema);
