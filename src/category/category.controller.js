@@ -1,4 +1,5 @@
 import Category from './category.model.js';
+import Product from '../products/products.model.js';
 import { request, response } from 'express';
 
 export const categoryPost = async (req, res) => {
@@ -47,13 +48,34 @@ export const categoryPut = async (req, res) => {
 };
 
 export const categoryDelete = async (req, res) => {
-  const { id } = req.params;
-  await Category.findByIdAndUpdate(id, { status: false });
+  try {
+    const { id } = req.params;
+    const defaultCat = await Category.findOne({ name: 'Default' });
+    const defaultId = defaultCat._id;
+    const changeCat = await Category.findByIdAndUpdate(id, { status: false });
+    if (changeCat.name === 'Default') {
+      return res.status(400).json({
+        msg: 'You cannot delete the default category',
+      });
+    } else if (!changeCat) {
+      return res.status(400).json({
+        msg: 'Category not found',
+      });
+    }
 
-  const category = await Category.findOne({ _id: id });
+    await Product.updateMany(
+      { category: id },
+      { $set: { category: defaultId } }
+    ); //
 
-  res.status(200).json({
-    msg: 'The category was deleted correctly',
-    category,
-  });
+    const category = await Category.findOne({ _id: id });
+
+    res.status(200).json({
+      msg: 'The category was deleted correctly',
+      category,
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ msg: 'Internal server error' });
+  }
 };

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "TienditaUsers",
-    "dateExported": "2024-03-10T01:19:44.375Z",
+    "dateExported": "2024-03-10T03:43:39.523Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-03-08T17:14:17.658Z",
-            "modified": "2024-03-10T00:33:53.051Z",
+            "modified": "2024-03-14T06:45:21.741Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"4\",\n  \"email\": \"4@gmail.com\",\n  \"password\": \"444444\"\n}\n",
+                "raw": "{\n  \"name\": \"Admin\",\n  \"email\": \"Admin@gmail.com\",\n  \"password\": \"Admin1\",\n  \"role\": \"ADMIN_ROLE\"\n}\n",
                 "form": []
             },
             "reqType": "post",
@@ -34,12 +34,12 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-03-08T17:15:23.365Z",
-            "modified": "2024-03-10T00:37:43.254Z",
+            "modified": "2024-03-14T07:27:00.340Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\": \"4@gmail.com\",\n  \"password\": \"444444\"\n}",
+                "raw": "{\n  \"email\": \"1@gmail.com\",\n  \"password\": \"111111\"\n}",
                 "form": []
             },
             "reqType": "post",
@@ -65,6 +65,30 @@
             "body": {
                 "type": "json",
                 "raw": "{\n  \"name\": \"eskerePrueba\",\n  \"oldPass\": \"444444\",\n  \"newPass\": \"holiwis\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "36a143ee-fda4-4586-98fe-d2adfd7811a3",
+            "colId": "cf5ec3ad-9de1-4f6a-bc81-7fa7e656298f",
+            "containerId": "",
+            "name": "adminDelete",
+            "url": "http://localhost:3000/finalAPI/v1/users/65f2a0b92763eb78e65d241c",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-14T06:46:05.255Z",
+            "modified": "2024-03-14T07:01:35.953Z",
+            "headers": [
+                {
+                    "name": "Xtoken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYyYTBiOTI3NjNlYjc4ZTY1ZDI0MWMiLCJpYXQiOjE3MTAzOTk2NzYsImV4cCI6MTcxMDQwNjg3Nn0.3R_I8P5-5HZriGR5qLin4Heli2rm1onw6pjqkAhiAbs"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\": \"Admin1\"\n}",
                 "form": []
             },
             "tests": []

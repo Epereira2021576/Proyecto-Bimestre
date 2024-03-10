@@ -9,6 +9,8 @@ import UserRoutes from '../src/users/user.routes.js';
 import AuthRoutes from '../src/auth/auth.routes.js';
 import CategoryRoutes from '../src/category/category.routes.js';
 import ProductsRoutes from '../src/products/products.routes.js';
+import CartRoutes from '../src/cart/cart.routes.js';
+import BillRoutes from '../src/billing/bill.routes.js';
 
 class Server {
   constructor() {
@@ -18,6 +20,8 @@ class Server {
     this.authPath = '/finalAPI/v1/auth';
     this.categoryPath = '/finalAPI/v1/category';
     this.productPath = '/finalAPI/v1/products';
+    this.cartPath = '/finalAPI/v1/cart';
+    this.billPath = '/finalAPI/v1/bill';
     // Connect to database
     this.connectDB();
     // Middlewares
@@ -43,6 +47,8 @@ class Server {
     this.app.use(this.authPath, AuthRoutes);
     this.app.use(this.categoryPath, CategoryRoutes);
     this.app.use(this.productPath, ProductsRoutes);
+    this.app.use(this.cartPath, CartRoutes);
+    this.app.use(this.billPath, BillRoutes);
   }
 
   // Method to start the server effective

@@ -1,0 +1,87 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "TienditaBills",
+    "dateExported": "2024-03-10T03:44:33.037Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b32c6632-6450-473c-96bb-cf2bdfce42e5",
+            "colId": "0511307a-bb6f-480b-9447-f079dfe20539",
+            "containerId": "",
+            "name": "BillGenerate",
+            "url": "http://localhost:3000/finalAPI/v1/bill/buyBill",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-14T00:20:29.274Z",
+            "modified": "2024-03-14T07:27:55.830Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM0M2NmMDBkZjk4NTBjMjY3NGYiLCJpYXQiOjE3MTA0MDEyMjEsImV4cCI6MTcxMDQwODQyMX0.SwmIfWNyJ5euCHbFabsj8a63RtiMiHDo-qB-bmC2qLU"
+                },
+                {
+                    "name": "Token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM0M2NmMDBkZjk4NTBjMjY3NGYiLCJpYXQiOjE3MTA0MDEyMjEsImV4cCI6MTcxMDQwODQyMX0.SwmIfWNyJ5euCHbFabsj8a63RtiMiHDo-qB-bmC2qLU"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"1\",\n  \"userID\":\"65f0fc43cf00df9850c2674f\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "e855a2ce-d378-4e68-a3ee-e58c11efcbb5",
+            "colId": "0511307a-bb6f-480b-9447-f079dfe20539",
+            "containerId": "",
+            "name": "billChange",
+            "url": "http://localhost:3000/finalAPI/v1/bill/billChange/65f27b42851f5c9074e772a9",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-03-14T03:43:17.621Z",
+            "modified": "2024-03-14T04:25:31.215Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM3OGNmMDBkZjk4NTBjMjY3NTMiLCJpYXQiOjE3MTAzODg3MTcsImV4cCI6MTcxMDM5NTkxN30.2UMK-Eb82QbphwyBHIRe_eEfhACrf8CXuHOQkcUjXdg"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cartQuant\": \"1\",\n  \"userID\": \"65f0fc78cf00df9850c26753\"\n}",
+                "form": []
+            },
+            "reqType": "put",
+            "tests": []
+        },
+        {
+            "_id": "9e6fac76-220b-4aae-9b60-bd5e0658aea9",
+            "colId": "0511307a-bb6f-480b-9447-f079dfe20539",
+            "containerId": "",
+            "name": "userChecks",
+            "url": "http://localhost:3000/finalAPI/v1/bill/checks/65f0fc43cf00df9850c2674f",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-14T04:41:43.851Z",
+            "modified": "2024-03-14T05:00:16.127Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM3OGNmMDBkZjk4NTBjMjY3NTMiLCJpYXQiOjE3MTAzOTIzNTIsImV4cCI6MTcxMDM5OTU1Mn0.N3H4MoZd9SGNWY4-Kycipi-Qy9BuuoDbn4E7QAQi_xY"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"userID\": \"65f0fc78cf00df9850c26753\"}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

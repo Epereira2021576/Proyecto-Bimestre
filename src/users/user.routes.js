@@ -7,7 +7,7 @@ import { existingEmail, existingUserById } from '../helpers/db-validators.js';
 import {
   adminUsersPut,
   clientUsersPut,
-  deleteUser,
+  deleteUserAdmin,
 } from './user.controller.js';
 
 const router = Router();
@@ -38,13 +38,21 @@ router.put(
 router.delete(
   '/:id',
   [
-    validateJWT,
-    hasRole('ADMIN_ROLE', 'CLIENT_ROLE'),
     check('id', 'Invalid id').isMongoId(),
     check('id').custom(existingUserById),
     validateFields,
   ],
-  deleteUser
+  deleteUserAdmin
+);
+
+router.delete(
+  '/delete/:id',
+  [
+    check('id', 'Invalid id').isMongoId(),
+    check('id').custom(existingUserById),
+    validateFields,
+  ],
+  deleteUserAdmin
 );
 
 export default router;

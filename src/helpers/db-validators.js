@@ -7,10 +7,10 @@ export const existingEmail = async (email = '') => {
   }
 };
 
-export const existingUserById = async (id = '') => {
-  const existingUser = await User.findOne({ _id: id });
+export const existingUserById = async (uid = '') => {
+  const existingUser = await User.findOne({ _id: uid });
   if (!existingUser) {
-    throw new Error(`The user with the ${id} does not exist`);
+    throw new Error(`The user with the id ${uid} does not exist`);
   }
 };
 

@@ -1,5 +1,6 @@
 import Product from './products.model.js';
 import Category from '../category/category.model.js';
+import Cart from '../cart/cart.model.js';
 import { request, response } from 'express';
 
 export const productoPost = async (req, res) => {
@@ -93,4 +94,58 @@ export const categoryProducts = async (req, res = response) => {
   res
     .status(200)
     .json({ msg: `Category Filtered:  ${catFind.name}`, products });
+};
+
+export const productInventory = async (req, res = response) => {
+  try {
+    const howMany = await Product.countDocuments();
+    const howManySold = await Product.countDocuments({ stock: 0 });
+
+    const howManyNow = howMany - howManySold;
+
+    const howManyProducts = await Cart.aggregate([
+      { $match: { status: 'PAID' } },
+      { $group: { _id: null, Payed: { $sum: 'parseInt($quantity)' } } },
+    ]);
+
+    let howManyTotal;
+
+    if (howManyProducts.length > 0) {
+      howManyTotal = howManyProducts[0].Payed;
+    } else {
+      howManyTotal = 0;
+    }
+
+    const prodSoldOut = await Product.countDocuments({ stock: 0 });
+
+    res.status(200).json({
+      msg: 'Existent products',
+      howMany,
+      msg2: 'Products in stock',
+      howManyNow,
+      msg3: 'Products Sold Out',
+      howManySold,
+      msg4: 'Total of products sold',
+      howManyTotal,
+      msg5: 'List of sold out products',
+      prodSoldOut,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ msg: 'Internal server error' });
+  }
+};
+
+export const soldOutProducts = async (req, res = response) => {
+  try {
+    const soldOut = await Product.find({ stock: 0 });
+
+    res.status(200).json({
+      msg: 'List of sold out products',
+      soldOut,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ msg: 'Internal server error' });
+  }
 };

@@ -8,8 +8,10 @@ import {
   productoDelete,
   categoryProducts,
   searchProducts,
+  productInventory,
+  soldOutProducts,
 } from './products.controller.js';
-
+import { validateJWT } from '../middlewares/validate-jwt.js';
 import { validationOfRole } from '../middlewares/role-validator.js';
 const router = Router();
 
@@ -51,5 +53,16 @@ router.delete(
 router.get('/:nameCat', categoryProducts);
 
 router.get('/product/:prodName', searchProducts);
+router.get(
+  '/control/inventory',
+  [validateJWT, validationOfRole],
+  productInventory
+);
+
+router.get(
+  '/control/soldOut',
+  [validateJWT, validationOfRole],
+  soldOutProducts
+);
 
 export default router;

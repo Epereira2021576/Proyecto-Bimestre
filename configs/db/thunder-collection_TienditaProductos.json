@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "TienditaProductos",
-    "dateExported": "2024-03-10T01:20:04.842Z",
+    "dateExported": "2024-03-10T03:44:20.837Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-08T22:37:22.348Z",
-            "modified": "2024-03-09T21:46:29.046Z",
+            "modified": "2024-03-14T07:25:52.878Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"ejemplo6\",\n  \"price\": \"14\",\n  \"category\": \"nombre2\",\n  \"stock\": \"15\",\n  \"userID\": \"65ebdd86ca630886e3c3f38a\"\n}",
+                "raw": "{\n  \"name\": \"otraCosa2\",\n  \"price\": \"12\",\n  \"category\": \"olaola\",\n  \"stock\": \"50\",\n  \"userID\": \"65f0fc78cf00df9850c26753\"\n}",
                 "form": []
             },
             "reqType": "post",
@@ -30,11 +30,11 @@
             "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
             "containerId": "",
             "name": "productosGetCategory",
-            "url": "http://localhost:3000/finalAPI/v1/products/nombre",
+            "url": "http://localhost:3000/finalAPI/v1/products/Default",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-08T22:47:26.843Z",
-            "modified": "2024-03-09T23:03:42.156Z",
+            "modified": "2024-03-14T06:18:42.325Z",
             "headers": [],
             "params": [],
             "reqType": "get",
@@ -60,16 +60,16 @@
             "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
             "containerId": "",
             "name": "productosPut",
-            "url": "http://localhost:3000/finalAPI/v1/products/65ebde1a5fc3e68ef4a6547c",
+            "url": "http://localhost:3000/finalAPI/v1/products/65f10e34e278e439ba3e92c8",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-08T23:08:44.102Z",
-            "modified": "2024-03-09T23:18:03.290Z",
+            "modified": "2024-03-14T06:15:05.012Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"fakiumanege\",\n  \"price\": \"350.42\",\n  \"category\": \"nombre\",\n  \"stock\": \"51\",\n  \"userID\": \"65ebdd86ca630886e3c3f38a\"\n}",
+                "raw": "{\n  \"name\": \"XDDD\",\n  \"price\": \"350.42\",\n  \"category\": \"Comidas\",\n  \"stock\": \"0\",\n  \"userID\": \"65f0fc78cf00df9850c26753\"\n}",
                 "form": []
             },
             "reqType": "put",
@@ -99,13 +99,63 @@
             "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
             "containerId": "",
             "name": "GetProductsByName",
-            "url": "http://localhost:3000/finalAPI/v1/products/product/eskere",
+            "url": "http://localhost:3000/finalAPI/v1/products/product/otraCosa2",
             "method": "GET",
             "sortNum": 60000,
             "created": "2024-03-09T23:01:01.264Z",
-            "modified": "2024-03-09T23:01:50.801Z",
+            "modified": "2024-03-14T07:26:02.608Z",
             "headers": [],
             "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "b71a5b1c-8068-48c2-9b18-bf25ca6fcad4",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "productInventory",
+            "url": "http://localhost:3000/finalAPI/v1/products/control/inventory",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-03-14T06:06:58.724Z",
+            "modified": "2024-03-14T06:09:45.197Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM3OGNmMDBkZjk4NTBjMjY3NTMiLCJpYXQiOjE3MTAzOTY1NTAsImV4cCI6MTcxMDQwMzc1MH0.axKyUEWEsgIKlF6VcHVvrqHdmifB2GcKUECxLAjmgm0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userID\": \"65f0fc78cf00df9850c26753\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "23908d19-ff91-4e1b-a84a-f1bb27ceff1c",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "soldOutProducts",
+            "url": "http://localhost:3000/finalAPI/v1/products/control/soldOut",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-03-14T06:17:53.125Z",
+            "modified": "2024-03-14T06:18:09.951Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM3OGNmMDBkZjk4NTBjMjY3NTMiLCJpYXQiOjE3MTAzOTY1NTAsImV4cCI6MTcxMDQwMzc1MH0.axKyUEWEsgIKlF6VcHVvrqHdmifB2GcKUECxLAjmgm0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userID\": \"65f0fc78cf00df9850c26753\"\n}",
+                "form": []
+            },
+            "reqType": "get",
             "tests": []
         }
     ]

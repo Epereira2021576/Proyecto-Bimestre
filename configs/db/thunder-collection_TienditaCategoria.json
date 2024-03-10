@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "TienditaCategoria",
-    "dateExported": "2024-03-10T01:20:00.941Z",
+    "dateExported": "2024-03-10T03:44:10.477Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-08T22:26:25.617Z",
-            "modified": "2024-03-09T03:55:24.935Z",
+            "modified": "2024-03-14T01:02:51.361Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"nombre3\",\n  \"description\": \"algo\",\n  \"userID\": \"65ebdd86ca630886e3c3f38a\"\n}",
+                "raw": "{\n  \"name\": \"olaola\",\n  \"description\": \"algo\",\n  \"userID\": \"65f0fc78cf00df9850c26753\"\n}",
                 "form": []
             },
             "reqType": "post",
@@ -56,16 +56,16 @@
             "colId": "688c48b6-ea91-4152-b9e3-cd4321f608b6",
             "containerId": "",
             "name": "categoriaDelete",
-            "url": "http://localhost:3000/finalAPI/v1/category/65ebddacca630886e3c3f394",
+            "url": "http://localhost:3000/finalAPI/v1/category/65f0fcdbcf00df9850c2675c",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2024-03-10T00:04:07.303Z",
-            "modified": "2024-03-10T00:05:42.753Z",
+            "modified": "2024-03-13T01:12:37.568Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"userID\": \"65ebdd86ca630886e3c3f38a\"\n}",
+                "raw": "{\n  \"userID\": \"65f0fc78cf00df9850c26753\"\n}",
                 "form": []
             },
             "reqType": "del",
