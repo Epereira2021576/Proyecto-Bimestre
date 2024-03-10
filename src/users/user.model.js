@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+import mongoose from 'mongoose';
 
-const UserSchema = Schema({
+const UserSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Name is required'],
@@ -15,8 +15,8 @@ const UserSchema = Schema({
   },
   role: {
     type: String,
-    required: true,
-    enum: ['ADMIN_ROLE', 'USER_ROLE'],
+    default: 'CLIENT_ROLE',
+    enum: ['ADMIN_ROLE', 'CLIENT_ROLE'],
   },
   status: {
     type: Boolean,
@@ -30,4 +30,4 @@ UserSchema.methods.toJSON = function () {
   return user;
 };
 
-module.exports = model('User', UserSchema);
+export default mongoose.model('User', UserSchema);

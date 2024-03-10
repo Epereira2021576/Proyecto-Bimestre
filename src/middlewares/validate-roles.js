@@ -1,6 +1,6 @@
-const { request, response } = require('express');
+import { request, response } from 'express';
 
-const hasRole = (...roles) => {
+export const hasRole = (...roles) => {
   return (req = request, res = response, next) => {
     if (!req.user) {
       return res.status(500).json({
@@ -16,8 +16,4 @@ const hasRole = (...roles) => {
 
     next();
   };
-};
-
-module.exports = {
-  hasRole,
 };

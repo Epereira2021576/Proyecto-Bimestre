@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+import jwt from 'jsonwebtoken';
+import User from '../users/user.model.js';
 
-const validateJWT = async (req, res, next) => {
+export const validateJWT = async (req, res, next) => {
   const token = req.header('x-token');
 
   if (!token) {
@@ -33,8 +33,4 @@ const validateJWT = async (req, res, next) => {
         msg: 'Invalid token',
       });
   }
-};
-
-module.exports = {
-  validateJWT,
 };

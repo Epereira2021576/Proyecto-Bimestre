@@ -1,0 +1,97 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "TienditaUsers",
+    "dateExported": "2024-03-10T03:43:39.523Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "881e4c23-d8f4-4cfa-82fa-d1aa1fc2fd3d",
+            "colId": "cf5ec3ad-9de1-4f6a-bc81-7fa7e656298f",
+            "containerId": "",
+            "name": "registerUsers",
+            "url": "http://localhost:3000/finalAPI/v1/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-08T17:14:17.658Z",
+            "modified": "2024-03-14T06:45:21.741Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Admin\",\n  \"email\": \"Admin@gmail.com\",\n  \"password\": \"Admin1\",\n  \"role\": \"ADMIN_ROLE\"\n}\n",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "7b74df56-b5e6-48af-a03a-22897c5f5fa6",
+            "colId": "cf5ec3ad-9de1-4f6a-bc81-7fa7e656298f",
+            "containerId": "",
+            "name": "loginUsers",
+            "url": "http://localhost:3000/finalAPI/v1/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-08T17:15:23.365Z",
+            "modified": "2024-03-14T07:27:00.340Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"1@gmail.com\",\n  \"password\": \"111111\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "a49d361e-40bb-4030-8c0c-c0fdf4842b97",
+            "colId": "cf5ec3ad-9de1-4f6a-bc81-7fa7e656298f",
+            "containerId": "",
+            "name": "userPut",
+            "url": "http://localhost:3000/finalAPI/v1/users/put/65ecfff20b662dfad9464f39",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-10T00:31:45.838Z",
+            "modified": "2024-03-10T00:38:04.398Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVjZmZmMjBiNjYyZGZhZDk0NjRmMzkiLCJpYXQiOjE3MTAwMzEwNjMsImV4cCI6MTcxMDAzODI2M30.KhLIXOuYmhkz19K1vyAySCZE73abbdsHB0j1P6F0rZc"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"eskerePrueba\",\n  \"oldPass\": \"444444\",\n  \"newPass\": \"holiwis\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "36a143ee-fda4-4586-98fe-d2adfd7811a3",
+            "colId": "cf5ec3ad-9de1-4f6a-bc81-7fa7e656298f",
+            "containerId": "",
+            "name": "adminDelete",
+            "url": "http://localhost:3000/finalAPI/v1/users/65f2a0b92763eb78e65d241c",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-14T06:46:05.255Z",
+            "modified": "2024-03-14T07:01:35.953Z",
+            "headers": [
+                {
+                    "name": "Xtoken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYyYTBiOTI3NjNlYjc4ZTY1ZDI0MWMiLCJpYXQiOjE3MTAzOTk2NzYsImV4cCI6MTcxMDQwNjg3Nn0.3R_I8P5-5HZriGR5qLin4Heli2rm1onw6pjqkAhiAbs"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\": \"Admin1\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

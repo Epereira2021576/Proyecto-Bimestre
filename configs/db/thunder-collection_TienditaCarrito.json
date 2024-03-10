@@ -1,0 +1,59 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "TienditaCarrito",
+    "dateExported": "2024-03-10T03:44:25.799Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "595e43db-407e-47bc-8642-07486082b3e0",
+            "colId": "d63d8771-e10a-4196-ae5c-0d5652cffe69",
+            "containerId": "",
+            "name": "cartPost",
+            "url": "http://localhost:3000/finalAPI/v1/cart/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-13T01:15:25.850Z",
+            "modified": "2024-03-14T07:27:18.260Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM0M2NmMDBkZjk4NTBjMjY3NGYiLCJpYXQiOjE3MTA0MDEyMjEsImV4cCI6MTcxMDQwODQyMX0.SwmIfWNyJ5euCHbFabsj8a63RtiMiHDo-qB-bmC2qLU"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cDate\": \"2000-05-12\",\n  \"user\": \"65f0fc43cf00df9850c2674f\",\n  \"product\": \"otraCosa2\",\n  \"quantity\": \"10\",\n  \"userID\": \"65f0fc43cf00df9850c2674f\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "5b6a543d-a853-4873-936b-b26401b756d2",
+            "colId": "d63d8771-e10a-4196-ae5c-0d5652cffe69",
+            "containerId": "",
+            "name": "cartDelete",
+            "url": "http://localhost:3000/finalAPI/v1/cart/delete/65f217d6a2d6cd3897ded6f2",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2024-03-13T02:22:49.462Z",
+            "modified": "2024-03-14T00:34:02.988Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYwZmM0M2NmMDBkZjk4NTBjMjY3NGYiLCJpYXQiOjE3MTAzNzYxNTUsImV4cCI6MTcxMDM4MzM1NX0.Ng76m_GPTF_C87Zd0IzVrdOQsf_ySadiM2flKpQavek"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userID\":\"65f0fc43cf00df9850c2674f\"\n}",
+                "form": []
+            },
+            "reqType": "del",
+            "tests": []
+        }
+    ]
+}
