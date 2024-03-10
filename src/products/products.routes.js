@@ -6,7 +6,8 @@ import {
   getProductos,
   productoPut,
   productoDelete,
-  buscarProductoPorCategoria,
+  categoryProducts,
+  searchProducts,
 } from './products.controller.js';
 
 import { validationOfRole } from '../middlewares/role-validator.js';
@@ -47,6 +48,8 @@ router.delete(
   productoDelete
 );
 
-router.get('/:idCategoria', buscarProductoPorCategoria);
+router.get('/:nameCat', categoryProducts);
+
+router.get('/product/:prodName', searchProducts);
 
 export default router;

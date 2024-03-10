@@ -43,6 +43,19 @@ export const getProductos = async (_req, res = response) => {
   }
 };
 
+//get products by name
+export const searchProducts = async (req, res) => {
+  const { prodName } = req.params;
+  const productName = await Product.findOne({ name: prodName });
+  if (!productName) {
+    res
+      .status(400)
+      .json({ msg: 'No product under that name exists in the database' });
+  } else {
+    res.status(200).json({ msg: 'Product Found!', productName });
+  }
+};
+
 export const productoPut = async (req, res) => {
   const { id } = req.params;
   const { _id, ...rest } = req.body;
@@ -69,48 +82,15 @@ export const productoDelete = async (req, res) => {
   });
 };
 
-export const ordenarProducto = async (req, res = response) => {
-  const { ordenReferencia } = req.params;
-
-  let sorting, modo;
-
-  switch (parseInt(ordenReferencia)) {
-    case 1:
-      sorting = 'name';
-      modo = 'asc';
-      break;
-    case 2:
-      sorting = 'name';
-      modo = 'desc';
-      break;
-    case 3:
-      sorting = 'price';
-      modo = 'asc';
-      break;
-    case 4:
-      sorting = 'price';
-      modo = 'desc';
-      break;
-
-    case 5:
-      sorting = 'category';
-      modo = 'asc';
-      break;
-    default:
-      sorting = 'name';
-      modo = 'asc';
-  }
-
-  const producto = await Producto.find().sort({ [sorting]: modo });
-  res.status(200).json({ producto });
-};
-
-export const buscarProductoPorCategoria = async (req, res = response) => {
-  const { idCategoria } = req.params;
-  const producto = await Product.find({ category: idCategoria });
-  if (!producto)
+export const categoryProducts = async (req, res = response) => {
+  const { nameCat } = req.params;
+  const catFind = await Category.findOne({ name: nameCat });
+  const products = await Product.find({ category: catFind });
+  if (!products)
     return res
       .status(400)
       .json({ msg: `Did't found any products on this category.` });
-  res.status(200).json({ producto });
+  res
+    .status(200)
+    .json({ msg: `Category Filtered:  ${catFind.name}`, products });
 };

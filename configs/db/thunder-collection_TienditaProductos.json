@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "TienditaProductos",
-    "dateExported": "2024-03-08T23:45:08.364Z",
+    "dateExported": "2024-03-10T01:20:04.842Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -10,32 +10,34 @@
             "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
             "containerId": "",
             "name": "productosPost",
-            "url": "http://localhost:3000/finalAPI/v1/productos/",
+            "url": "http://localhost:3000/finalAPI/v1/products/",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-08T22:37:22.348Z",
-            "modified": "2024-03-08T23:28:29.199Z",
+            "modified": "2024-03-09T21:46:29.046Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"ostia\",\n  \"price\": \"14\",\n  \"category\": \"nombre\",\n  \"stock\": \"15\",\n  \"userID\": \"65eb479bbf0e913c142efd65\"\n}",
+                "raw": "{\n  \"name\": \"ejemplo6\",\n  \"price\": \"14\",\n  \"category\": \"nombre2\",\n  \"stock\": \"15\",\n  \"userID\": \"65ebdd86ca630886e3c3f38a\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
             "_id": "ebf1c229-fb43-4a26-8e85-467006f96c99",
             "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
             "containerId": "",
-            "name": "productosGetCategorias",
-            "url": "http://localhost:3000/finalAPI/v1/productos/nombre",
+            "name": "productosGetCategory",
+            "url": "http://localhost:3000/finalAPI/v1/products/nombre",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-08T22:47:26.843Z",
-            "modified": "2024-03-08T23:05:59.842Z",
+            "modified": "2024-03-09T23:03:42.156Z",
             "headers": [],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -43,13 +45,14 @@
             "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
             "containerId": "",
             "name": "productosGet",
-            "url": "http://localhost:3000/finalAPI/v1/productos/",
+            "url": "http://localhost:3000/finalAPI/v1/products/",
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-03-08T22:54:32.679Z",
-            "modified": "2024-03-08T22:54:39.542Z",
+            "modified": "2024-03-09T03:57:25.972Z",
             "headers": [],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -57,18 +60,19 @@
             "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
             "containerId": "",
             "name": "productosPut",
-            "url": "http://localhost:3000/finalAPI/v1/productos/65eb913c535e541c3f253410",
+            "url": "http://localhost:3000/finalAPI/v1/products/65ebde1a5fc3e68ef4a6547c",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-08T23:08:44.102Z",
-            "modified": "2024-03-08T23:17:11.573Z",
+            "modified": "2024-03-09T23:18:03.290Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"eskere\",\n  \"price\": \"15\",\n  \"category\": \"nombre\",\n  \"stock\": \"5\",\n  \"userID\": \"65eb479bbf0e913c142efd65\"\n}",
+                "raw": "{\n  \"name\": \"fakiumanege\",\n  \"price\": \"350.42\",\n  \"category\": \"nombre\",\n  \"stock\": \"51\",\n  \"userID\": \"65ebdd86ca630886e3c3f38a\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -88,6 +92,20 @@
                 "raw": "{\n  \"userID\": \"65eb479bbf0e913c142efd65\"\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "91209058-fac5-43d3-b384-0e2ca205d1eb",
+            "colId": "4e047f21-8c45-4916-8581-48129c3ffdac",
+            "containerId": "",
+            "name": "GetProductsByName",
+            "url": "http://localhost:3000/finalAPI/v1/products/product/eskere",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-03-09T23:01:01.264Z",
+            "modified": "2024-03-09T23:01:50.801Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]
